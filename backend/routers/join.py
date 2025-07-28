@@ -5,7 +5,7 @@ import os
 
 router = APIRouter()
 
-MONGO_URI = "mongodb+srv://riteshsolke12:<db_password>@cluster0.qx2lkhs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+MONGO_URI = "mongodb+srv://riteshsolke12:Ritesh%40123@cluster0.qx2lkhs.mongodb.net/AI-CLUB_DB?retryWrites=true&w=majority&appName=Cluster0"
 # Connect to MongoDB
 client = MongoClient(MONGO_URI)
 db = client["AI-CLUB_DB"]
