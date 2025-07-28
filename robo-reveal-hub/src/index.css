@@ -1,0 +1,284 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Vibrant Sunset Aurora Theme (Default Light Theme) */
+    --background: 340 45% 8%;
+    --foreground: 45 95% 92%;
+
+    --card: 320 35% 12%;
+    --card-foreground: 45 95% 92%;
+
+    --popover: 320 35% 12%;
+    --popover-foreground: 45 95% 92%;
+
+    /* Golden Orange Primary */
+    --primary: 35 95% 65%;
+    --primary-foreground: 340 45% 8%;
+
+    /* Deep Coral Secondary */
+    --secondary: 15 85% 55%;
+    --secondary-foreground: 45 95% 92%;
+
+    --muted: 320 25% 15%;
+    --muted-foreground: 25 40% 70%;
+
+    /* Vibrant Pink Accent */
+    --accent: 330 85% 68%;
+    --accent-foreground: 340 45% 8%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 45 95% 92%;
+
+    --border: 320 30% 20%;
+    --input: 320 25% 18%;
+    --ring: 35 95% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom Aurora Colors */
+    --aurora-gold: 45 100% 70%;
+    --aurora-coral: 15 90% 65%;
+    --aurora-pink: 330 85% 68%;
+    --aurora-purple: 280 70% 55%;
+    
+    /* Gradients */
+    --gradient-neural: linear-gradient(135deg, hsl(35 95% 65% / 0.15), hsl(330 85% 68% / 0.15));
+    --gradient-glow: linear-gradient(45deg, hsl(35 95% 65%), hsl(330 85% 68%));
+    --gradient-card: linear-gradient(145deg, hsl(320 35% 12% / 0.9), hsl(340 40% 15% / 0.8));
+    --gradient-hero: linear-gradient(180deg, hsl(340 45% 8%), hsl(320 35% 12%));
+    
+    /* Shadows & Effects */
+    --shadow-glow: 0 0 40px hsl(35 95% 65% / 0.4);
+    --shadow-neural: 0 15px 60px hsl(35 95% 65% / 0.2);
+    --shadow-hologram: 0 0 80px hsl(330 85% 68% / 0.5);
+    --shadow-neon: 0 0 20px hsl(330 85% 68% / 0.6);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* New: Bio-Digital Green Theme */
+    --background: 150 50% 5%;
+    --foreground: 150 80% 95%;
+
+    --card: 150 40% 10%;
+    --card-foreground: 150 80% 95%;
+
+    --popover: 150 40% 10%;
+    --popover-foreground: 150 80% 95%;
+
+    --primary: 150 100% 45%; /* Vibrant Green */
+    --primary-foreground: 150 50% 5%;
+
+    --secondary: 160 50% 20%; /* Deeper Teal */
+    --secondary-foreground: 150 80% 95%;
+
+    --muted: 150 20% 15%;
+    --muted-foreground: 150 15% 60%;
+
+    --accent: 130 90% 55%; /* Bright Lime */
+    --accent-foreground: 130 50% 5%;
+
+    --destructive: 0 80% 65%;
+    --destructive-foreground: 150 80% 95%;
+
+    --border: 150 30% 20%;
+    --input: 150 30% 15%;
+    --ring: 150 100% 45%;
+
+    /* Custom AI Theme Colors */
+    --neural-glow: hsl(var(--primary));
+    --hologram: hsl(var(--accent));
+    --cyber-mint: hsl(var(--primary));
+    
+    /* Gradients */
+    --gradient-neural: linear-gradient(135deg, hsl(var(--primary) / 0.15), hsl(var(--accent) / 0.15));
+    --gradient-glow: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card) / 0.9), hsl(160 40% 12% / 0.8));
+    
+    /* Shadows & Effects */
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.4);
+    --shadow-neural: 0 15px 60px hsl(var(--primary) / 0.2);
+    --shadow-hologram: 0 0 80px hsl(var(--accent) / 0.5);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.5);
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
+  }
+
+  /* Aurora Background Animation */
+  .neural-bg {
+    background: 
+      radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--accent) / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(var(--secondary) / 0.05) 0%, transparent 50%);
+  }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotateY(0deg); }
+    50% { transform: translateY(-20px) rotateY(5deg); }
+  }
+
+  /* Glow Pulse */
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.4); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.8), 0 0 60px hsl(var(--primary) / 0.4); }
+  }
+
+  /* Neural Pulse */
+  @keyframes neural-pulse {
+    0% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+    100% { opacity: 0.3; transform: scale(1); }
+  }
+
+  /* Particle Movement */
+  @keyframes particle-float {
+    0% { transform: translateY(0px) translateX(0px); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+  }
+
+  /* Hologram Effect */
+  .hologram-effect {
+    background: linear-gradient(45deg, transparent 30%, hsl(var(--primary) / 0.1) 50%, transparent 70%);
+    animation: hologram-scan 3s infinite;
+  }
+
+  @keyframes hologram-scan {
+    0% { background-position: -100% 0; }
+    100% { background-position: 100% 0; }
+  }
+
+  /* Glitch Text Effect */
+  .glitch-text {
+    position: relative;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch-text::before {
+    animation: glitch-1 0.3s infinite;
+    color: hsl(var(--primary));
+    z-index: -1;
+  }
+
+  .glitch-text::after {
+    animation: glitch-2 0.3s infinite;
+    color: hsl(var(--accent));
+    z-index: -2;
+  }
+
+  @keyframes glitch-1 {
+    0%, 14%, 16%, 18%, 20%, 22%, 24%, 26%, 28%, 30%, 32%, 34%, 36%, 38%, 40%, 42%, 44%, 46%, 48%, 50%, 52%, 54%, 56%, 58%, 60%, 62%, 64%, 66%, 68%, 70%, 72%, 74%, 76%, 78%, 80%, 82%, 84%, 86%, 88%, 90%, 92%, 94%, 96%, 98%, 100% {
+      transform: translate(0);
+    }
+    15% { transform: translate(-2px, 0); }
+    17% { transform: translate(2px, 0); }
+  }
+
+  @keyframes glitch-2 {
+    0%, 20%, 22%, 24%, 26%, 28%, 30%, 32%, 34%, 36%, 38%, 40%, 42%, 44%, 46%, 48%, 50%, 52%, 54%, 56%, 58%, 60%, 62%, 64%, 66%, 68%, 70%, 72%, 74%, 76%, 78%, 80%, 82%, 84%, 86%, 88%, 90%, 92%, 94%, 96%, 98%, 100% {
+      transform: translate(0);
+    }
+    21% { transform: translate(-2px, 0); }
+    23% { transform: translate(2px, 0); }
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ... existing styles ... */
+
+@layer base {
+  /* ... existing styles ... */
+
+  /* Floating Animation for Developer Name */
+  @keyframes float-name {
+    0% {
+      transform: translateY(0px);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(-10px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 0.7;
+    }
+  }
+
+  .floating-name {
+    animation: float-name 6s ease-in-out infinite;
+  }
+}
