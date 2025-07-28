@@ -6,14 +6,18 @@ import shutil
 
 router = APIRouter()
 
+MONGO_URI = "mongodb+srv://riteshsolke12:<db_password>@cluster0.qx2lkhs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+client = MongoClient(MONGO_URI)
+db = client["AI-CLUB_DB"]
+collection = db["Gallery"]
+
 # --- Setup ---
 UPLOAD_DIRECTORY = "./uploads"
 if not os.path.exists(UPLOAD_DIRECTORY):
     os.makedirs(UPLOAD_DIRECTORY)
 
-client = MongoClient("mongodb://localhost:27017/")
-db = client["AI-CLUB_DB"]
-collection = db["Gallery"]
+
 
 def serialize_doc(doc):
     if doc and "_id" in doc:
