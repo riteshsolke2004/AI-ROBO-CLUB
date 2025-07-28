@@ -14,7 +14,7 @@ export default function GallerySection() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch('http://localhost:8000/gallery/images');
+        const response = await fetch('https://ai-robo-club.onrender.com/gallery/images');
         const data = await response.json();
         setImages(data);
       } catch (error) {
@@ -38,7 +38,7 @@ export default function GallerySection() {
       formData.append('file', file);
 
       try {
-        const response = await fetch('http://localhost:8000/gallery/add-image', {
+        const response = await fetch('https://ai-robo-club.onrender.com/gallery/add-image', {
           method: 'POST',
           body: formData, // Send FormData instead of JSON
         });
