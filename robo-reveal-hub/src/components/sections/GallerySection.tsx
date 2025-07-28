@@ -22,7 +22,7 @@ export default function GallerySection() {
         setLoading(true);
         setError(null);
 
-        const response = await fetch('http://127.0.0.1:8000/gallery/images');
+        const response = await fetch('https://ai-robo-club.onrender.com/gallery/images');
 
         if (!response.ok) {
           throw new Error(`Failed to fetch images. Server responded with ${response.status}.`);
@@ -65,7 +65,7 @@ export default function GallerySection() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/gallery/add-image', {
+      const response = await fetch('https://ai-robo-club.onrender.com/gallery/add-image', {
         method: 'POST',
         body: formData,
       });
