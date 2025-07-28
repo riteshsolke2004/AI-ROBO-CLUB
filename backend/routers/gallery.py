@@ -33,7 +33,7 @@ async def add_image(title: str = Form(...), file: UploadFile = File(...)):
             shutil.copyfileobj(file.file, buffer)
             
         # The URL that the frontend will use to access the image
-        image_url = f"http://localhost:8000/uploads/{file.filename}"
+        image_url = f"https://ai-robo-club.onrender.com/uploads/{file.filename}"
 
         image_data = {
             "title": title,
