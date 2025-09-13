@@ -4,7 +4,7 @@ import teamPhotoImage from "@/assets/team-photo.jpg";
 
 // 1. Import your team member images here
 import teamAditya from '@/assets/team-aditya.jpg'; // Replace with your actual image files
-import teamSneha from '@/assets/team-sneha.jpg';
+import teamSneha from '@/assets/team-sneha1.jpg';
 import teamPrasad from '@/assets/team-prasad.jpg';
 import teamRitesh from '@/assets/team-ritesh.jpg';
 import teamVirendra from '@/assets/team-virendra.jpg';
